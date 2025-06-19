@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grade Evaluator</title>
+</head>
+<body>
+  <h2>Grade Evaluator (Marks out of 100)</h2>
+  <button onclick="evaluateGrade()">Enter Marks</button>
+
+  <script>
+    function evaluateGrade() {
+      let marks = prompt("Enter your marks (0 - 100):");
+      marks = Number(marks);
+
+      if (isNaN(marks) || marks < 0 || marks > 100) {
+        console.log("❌ Please enter a valid number between 0 and 100.");
+        return;
+      }
+
+      let grade;
+      let message;
+
+      if (marks >= 90 && marks <= 100) {
+        grade = 'A';
+      } else if (marks >= 75 && marks <= 89) {
+        grade = 'B';
+      } else if (marks >= 60 && marks <= 74) {
+        grade = 'C';
+      } else if (marks >= 40 && marks <= 59) {
+        grade = 'D';
+      } else {
+        grade = 'F';
+      }
+
+      switch (grade) {
+        case 'A':
+          message = "Excellent!";
+          break;
+        case 'B':
+          message = "Great job!";
+          break;
+        case 'C':
+          message = "Good effort.";
+          break;
+        case 'D':
+          message = "You passed.";
+          break;
+        case 'F':
+          message = "Better luck next time.";
+          break;
+      }
+
+      console.log(`🎓 Your Grade: ${grade}\n💬 Message: ${message}`);
+    }
+  </script>
+</body>
+</html>
